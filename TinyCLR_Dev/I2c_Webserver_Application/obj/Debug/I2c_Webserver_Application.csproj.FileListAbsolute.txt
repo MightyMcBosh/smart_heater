@@ -1,0 +1,13 @@
+C:\Users\Administrator\source\repos\LAZY_CPP\I2c_Webserver_Application\bin\Debug\I2c_Webserver_Application.exe
+C:\Users\Administrator\source\repos\LAZY_CPP\I2c_Webserver_Application\bin\Debug\I2c_Webserver_Application.pdb
+C:\Users\Administrator\source\repos\LAZY_CPP\I2c_Webserver_Application\bin\Debug\GHIElectronics.TinyCLR.Devices.Gpio.dll
+C:\Users\Administrator\source\repos\LAZY_CPP\I2c_Webserver_Application\bin\Debug\GHIElectronics.TinyCLR.Devices.I2c.dll
+C:\Users\Administrator\source\repos\LAZY_CPP\I2c_Webserver_Application\bin\Debug\GHIElectronics.TinyCLR.Native.dll
+C:\Users\Administrator\source\repos\LAZY_CPP\I2c_Webserver_Application\bin\Debug\GHIElectronics.TinyCLR.Pins.dll
+C:\Users\Administrator\source\repos\LAZY_CPP\I2c_Webserver_Application\bin\Debug\mscorlib.dll
+C:\Users\Administrator\source\repos\LAZY_CPP\I2c_Webserver_Application\obj\Debug\I2c_Webserver_Application.csproj.AssemblyReference.cache
+C:\Users\Administrator\source\repos\LAZY_CPP\I2c_Webserver_Application\obj\Debug\I2c_Webserver_Application.csproj.SuggestedBindingRedirects.cache
+C:\Users\Administrator\source\repos\LAZY_CPP\I2c_Webserver_Application\obj\Debug\I2c_Webserver_Application.csproj.CoreCompileInputs.cache
+C:\Users\Administrator\source\repos\LAZY_CPP\I2c_Webserver_Application\obj\Debug\I2c_Webserver_Application.csproj.CopyComplete
+C:\Users\Administrator\source\repos\LAZY_CPP\I2c_Webserver_Application\obj\Debug\I2c_Webserver_Application.exe
+C:\Users\Administrator\source\repos\LAZY_CPP\I2c_Webserver_Application\obj\Debug\I2c_Webserver_Application.pdb
