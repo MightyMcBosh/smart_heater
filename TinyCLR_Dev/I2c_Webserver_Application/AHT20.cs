@@ -46,6 +46,11 @@ using GHIElectronics.TinyCLR.Devices.Gpio;
 
 namespace I2c_Webserver_Application
 {
+    public enum TemperatureScale
+    {
+        Celsius,
+        Fahrenheit
+    }
 
     public class AHT20
     {
@@ -69,26 +74,41 @@ namespace I2c_Webserver_Application
         private byte[] _status = new byte[1];
         private byte[] _data = new byte[6];
 
+        public TemperatureScale TemperatureScale; 
+
         bool _needsCal => ((_status[0] >> 3) & 0xFF) == 0;
         bool _busy => ((_status[0] >> 7) & 0xFF) == 1;
 
         private I2cDevice _device;
         private I2cController _controller;
 
-        //reports temperature in Fahrenheit.
-        public double Temperature { get; private set; }
+        private double _temperature; 
+
+        public double Temperature { 
+            get
+            {
+                if (TemperatureScale == TemperatureScale.Celsius)
+                    return _temperature;
+                else
+                    return (_temperature * 9 / 5) + 32.0; 
+            }
+            private set
+            {
+                _temperature = value; 
+            }
+        }
         public double Humidity { get; private set; }
 
         /// <summary>
         /// builds logical AHT20 driver object
         /// </summary>
         /// <param name="i2c"></param>
-        public AHT20(I2cController i2c, bool autoStart)
+        public AHT20(I2cController i2c, bool autoStart, TemperatureScale scale)
         {
             _controller = i2c;
             var settings = new I2cConnectionSettings(ADDR, I2cMode.Master, I2cAddressFormat.SevenBit);
-            _device = _controller.GetDevice(settings); 
-
+            _device = _controller.GetDevice(settings);
+            this.TemperatureScale = scale; 
             if(autoStart)
             {
                 Thread.Sleep(40); 
@@ -193,7 +213,7 @@ namespace I2c_Webserver_Application
             _status[0] = _data[0];
 
 
-            ////borrowed this from the Adafruit libraries, wasn't sure how they ordered the bits - the data sheet wassnt clear; 
+            ////borrowed this from the Adafruit libraries, wasn't sure how they ordered the bits - the data sheet wasnt clear; 
             TempH = _data[1];
             TempH <<= 8;
             TempH |= _data[2];

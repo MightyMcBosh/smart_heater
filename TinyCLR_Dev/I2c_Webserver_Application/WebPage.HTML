@@ -1,0 +1,104 @@
+﻿<!--  This is just so I can use this editor - any time any changes are made this needs to be copied to  -->
+
+
+<!doctype html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <!--<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">-->
+
+    <title>Hello, FEZ Web Server!</title>
+</head>
+<body>
+    <h1>Ben's Office Temp and Humidity</h1>
+    <div>       
+        <label>Temperature: </label>
+        <label id="temp"></label>
+        <br />
+        <label>Humidity: </label>
+        <label id="hmd"></label>
+
+        <br/>
+        
+        <button id="update">Update Temp and Humidity</button>
+        
+        <form id="frmAction">
+            <div>
+                <label>
+                    <input type="checkbox" name="heater" id="heater" readonly disabled />
+                    Heater Output
+                </label>
+            </div>
+            <p>
+                <button type="submit">
+                    Toggle
+                </button>
+            </p>
+        </form>        
+    </div>
+    <!-- Optional JavaScript -->
+  
+    <script type="text/javascript">
+        var heater = document.getElementById('heater');
+        var ajax = new XMLHttpRequest();
+        ajax.onreadystatechange = function (state) {
+            if (state.currentTarget.readyState == 4) {
+                var data = JSON.parse(state.currentTarget.responseText);
+                
+                document.getElementById('temp').textContent = data.temperature; 
+                document.getElementById('hmd').textContent = data.humidity; 
+
+                if (data.heater) {
+                    heater.checked = true;
+                } else {
+                    heater.checked = false;
+                }
+            }
+        };
+     
+        window.onload = function () {
+            var checked = false;
+            var data = {};
+            var form = document.getElementById('frmAction');
+            var update = document.getElementById('update');
+
+            if (heater) {
+                data[heater.name] = false;
+            }
+
+            if (form) {
+
+                heater.addEventListener('change', function (event) {
+                    data[heater.name] = heater.checked;
+                });
+
+                form.addEventListener('submit', function (event) {
+                    event.preventDefault();
+
+                    ajax.open('POST', '', true);
+                    ajax.setRequestHeader('content-type', 'application/json');
+
+                    var json = JSON.stringify(data);
+                    ajax.send(json);
+                  
+                });
+            }
+
+            if (update) {
+                update.onclick = function (event) {
+                    event.preventDefault();
+
+
+                    ajax.open('GET', 'data', true);
+                    ajax.send();
+                }
+            }
+        };
+
+    </script>
+</body>
+</html>

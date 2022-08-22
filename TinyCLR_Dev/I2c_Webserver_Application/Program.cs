@@ -14,12 +14,15 @@ namespace I2c_Webserver_Application
         static void Main()
         {
             var i2c = I2cController.FromName(SC20100.I2cBus.I2c1);
-            AHT20 sensor = new AHT20(i2c, true);
+            AHT20 sensor = new AHT20(i2c, true,TemperatureScale.Fahrenheit);
+            Wifi.Initialize();
+            var ws = new WebServer(sensor);  
+            
 
             Thread.Sleep(2000);
             while (true)
             {
-                Debug.WriteLine($"Sensor reading: Temp {sensor.Temperature} C, Humidity = {sensor.Humidity}%");
+                Debug.WriteLine($"Sensor reading: Temp {sensor.Temperature} F, Humidity = {sensor.Humidity}%");
                 Thread.Sleep(3000); 
             }            
         }

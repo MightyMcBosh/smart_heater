@@ -11,3 +11,10 @@ C:\Users\Administrator\source\repos\LAZY_CPP\I2c_Webserver_Application\obj\Debug
 C:\Users\Administrator\source\repos\LAZY_CPP\I2c_Webserver_Application\obj\Debug\I2c_Webserver_Application.csproj.CopyComplete
 C:\Users\Administrator\source\repos\LAZY_CPP\I2c_Webserver_Application\obj\Debug\I2c_Webserver_Application.exe
 C:\Users\Administrator\source\repos\LAZY_CPP\I2c_Webserver_Application\obj\Debug\I2c_Webserver_Application.pdb
+C:\Users\Administrator\source\repos\LAZY_CPP\I2c_Webserver_Application\bin\Debug\GHIElectronics.TinyCLR.Devices.Network.dll
+C:\Users\Administrator\source\repos\LAZY_CPP\I2c_Webserver_Application\bin\Debug\GHIElectronics.TinyCLR.Devices.Spi.dll
+C:\Users\Administrator\source\repos\LAZY_CPP\I2c_Webserver_Application\bin\Debug\GHIElectronics.TinyCLR.Devices.Uart.dll
+C:\Users\Administrator\source\repos\LAZY_CPP\I2c_Webserver_Application\bin\Debug\GHIElectronics.TinyCLR.Networking.dll
+C:\Users\Administrator\source\repos\LAZY_CPP\I2c_Webserver_Application\bin\Debug\GHIElectronics.TinyCLR.Networking.Http.dll
+C:\Users\Administrator\source\repos\LAZY_CPP\I2c_Webserver_Application\obj\Debug\I2c_Webserver_Application.Resources.resources
+C:\Users\Administrator\source\repos\LAZY_CPP\I2c_Webserver_Application\obj\Debug\I2c_Webserver_Application.csproj.GenerateResource.cache
